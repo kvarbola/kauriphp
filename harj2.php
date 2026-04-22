@@ -6,7 +6,7 @@
     <title>PHP harjutused</title>
 </head>
 <body>
-    <h1>Harjutus 01</h1>
+    <h1>Harjutus 02</h1>
     <?php
     //Kauri Varbola 17.04.2026
     //Harjutus 02
