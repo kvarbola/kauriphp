@@ -1,23 +1,23 @@
 <?php
 /*
-Plugin Name: Marguse teateriba
+Plugin Name: header-plugin
 Description: Kuvab lehe ülaservas teateriba
 Version: 1.0
-Author: Margus
+Author: Kauri Varbola
 */
 
-// Lisa admin menüü
+// Lisab admin menüü
 add_action('admin_menu', function() {
     add_menu_page(
-        'Marguse teateriba',
-        'Marguse teateriba',
+        'Kauri teateriba',
+        'Kauri teateriba',
         'manage_options',
-        'marguse-teateriba',
+        'kauri-teateriba',
         'teateriba_settings_page'
     );
 });
 
-// Registreeri seaded
+// Registreerib seaded
 add_action('admin_init', function() {
     register_setting('teateriba_settings_group', 'teateriba_text');
     register_setting('teateriba_settings_group', 'teateriba_bg_color');
@@ -28,7 +28,7 @@ add_action('admin_init', function() {
 function teateriba_settings_page() {
     ?>
     <div class="wrap">
-        <h1>Marguse teateriba</h1>
+        <h1>Kauri teateriba</h1>
         <form method="post" action="options.php">
             <?php settings_fields('teateriba_settings_group'); ?>
             <?php do_settings_sections('teateriba_settings_group'); ?>
@@ -62,7 +62,7 @@ function teateriba_settings_page() {
     <?php
 }
 
-// Kuva teateriba frontendis
+// Kuvab teateriba frontendis
 add_action('wp_head', function() {
     $text = get_option('teateriba_text');
     $bg = get_option('teateriba_bg_color', '#000000');
@@ -89,7 +89,7 @@ add_action('wp_head', function() {
     </style>";
 });
 
-// Lisa HTML body algusesse
+// Lisab HTML body algusesse
 add_action('wp_body_open', function() {
     $text = get_option('teateriba_text');
 
