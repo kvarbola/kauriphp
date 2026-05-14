@@ -112,11 +112,79 @@
     foreach ($firmad as $firma) {
         echo "$firma<br>";
     }   
+
+echo "<br>";
     ?>
 
     <form action="" method="get">
         Eemalda massiivist: <input type="text" name="eemaldus">
         <input type="submit" value="Eemalda">
     </form>
+
+    <?php
+    
+
+    if (!empty($_GET['eemaldus'])) {
+        $eemaldus = $_GET['eemaldus'];
+        unset($firmad[array_search($eemaldus,$firmad)]);
+        echo "<br>Eemaldati $eemaldus.";
+    }
+    echo "<br>Uuendatud massiiv: <br><br>";
+    foreach ($firmad as $firma) {
+        echo "$firma<br>";
+    }
+    ?>
+
+    <h2>Riigid</h2>
+
+    <?php
+    
+    $Riigid = array("Indonesia","Canada","Kyrgyzstan","Germany","Philippines","Philippines","Canada","Philippines","South Sudan","Brazil","Democratic Republic of the Congo","Indonesia","Syria","Sweden","Philippines","Russia","China","Japan","Brazil","Sweden","Mexico","France","Kazakhstan","Cuba","Portugal","Czech Republic");
+    $pikkus = array();
+
+    foreach($Riigid as $riik) {
+        $length = strlen($riik);
+        array_push($pikkus, $length);
+    }
+    
+    echo "Pikim väärtus massiivis: <br>";
+    echo max($pikkus);
+    echo " tähte."
+    ?>
+
+    <h2>Hiina tähed</h2>
+
+    <?php
+    
+    $tahed = array("瀚聪","月松","雨萌","展博","雪丽","哲恒","慧妍","博裕","宸瑜","奕漳","思宏","伟菘","彦歆","睿杰","尹智","琪煜","惠茜","晓晴","志宸","博豪","璟雯","崇杉","俊誉","军卿","辰华","娅楠","志宸","欣妍","明美");
+
+    sort($tahed);
+    
+
+    echo "Nimed sorteeritud kasvavalt<br>";
+    foreach($tahed as $taht) {
+        echo $taht;
+        echo "<br>";
+    }
+    
+    echo "<br>";
+    echo "Viimane ja esimene nimi:<br>";
+    echo $tahed[0];
+    echo "<br>";
+    echo $tahed[count($tahed) - 1];
+    echo "<br>";
+    ?>
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
